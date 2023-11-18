@@ -1,0 +1,194 @@
+@font-face {
+    font-family: "HankenGrotesk";
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('assets/fonts/HankenGrotesk-VariableFont_wght.ttf')
+    format('truetype');
+}
+:root{
+--clr-primary-400:hsl(252, 100%, 67%);
+--clr-primary-500:hsl(256, 72%, 46%);
+--clr-secondary-400:hsl(241, 81%, 54%);
+--clr-secondary-500:hsl(241, 72%, 46%);
+
+--clr-neutral-100:hsl(0, 0%, 100%);
+--clr-neutral-200:hsl(221, 100%, 96%);
+--clr-neutral-300:hsl(241, 100%, 89%);
+--clr-neutral-700:hsl(224, 30%, 27%) ;
+
+--gradient-primary:linear-gradient(
+    var(--clr-primary-400),
+    var(--clr-secondary-400)
+);
+
+--gradient-to-transparent:linear-gradient(
+var(--clr-primary-500),
+hsla(241, 72%, 46%, 0.002)
+);
+
+--clr-red:0deg, 100%, 67%;
+--clr-yellow:39, 100%, 56% ;
+--clr-green:166, 100% , 37%;
+--clr-blue:234, 85%, 45%;
+
+--font-family-default:"HankenGrotesk";
+
+--fw-regular:500;
+--fw-bold:700;
+--fw-black:800;
+
+--fs-400:1.125rem;
+--fs-500:1.25rem;
+--fs-600:1.5rem;
+--fs-700:1.75rem;
+--fs-800:2rem;
+--fs-900:5rem;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+*{
+    margin:0;
+    font:inherit;
+}
+img,
+svg{
+    display:block;
+    max-width:100%;
+}
+/* Using gird */
+body{
+    font-family: var(--font-family-default);
+    font-size:var(--fs-400);
+    color:var(--clr-neutral-700);
+}
+@media(min-width:768px){
+    body{
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+}
+/* End Global Rules */
+.result-summary{
+    --padding:2rem;
+    --border-radius:2rem;
+    max-width:46rem;
+    display: grid;
+}
+@media(min-width:768px){
+    .result-summary{
+        margin-inline: 1rem;
+        grid-template-columns: 1fr 1fr;
+        border-radius:var(--border-radius);
+        overflow: hidden;
+        box-shadow:.5rem 1rem 3rem hsla(224, 30%, 27%, 0.157);
+    
+}
+}
+.result{
+    text-align: center;
+    color:hsl(0, 0%, 100% , .7);
+    background:var(--gradient-primary);
+    border-radius:0 0 var(--border-radius) var(--border-radius);
+}
+@media(min-width:768px){
+    .result{
+        border-radius:var(--border-radius) var(--border-radius);
+    }
+}
+.result,
+.summary{
+    padding:var(--padding);
+}
+.section-title{
+    font-weight: var(--fw-bold);
+    font-size:var(--fs-600);
+}
+.grid-flow{
+   display: grid; 
+   align-content: start;
+   gap:1rem;
+}
+.grid-flow[data-spacing='large']{
+    gap:2rem;
+}
+.flex-group{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:.5rem
+}
+.result-score{
+    display: grid;
+    place-content: center;
+    width:12rem;
+    background: var(--gradient-to-transparent);
+    margin-inline:auto;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+.result-score span{
+    display: block;
+    font-size:var(--fs-900);
+    font-weight: var(--fw-black);
+    line-height: 1;
+    color:var(--clr-neutral-100);
+}
+.result-rank{
+    font-weight: var(--fw-bold);
+    font-size:var(--fs-700);
+    color:var(--clr-neutral-100);
+}
+.summary-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1rem;
+    border-radius: .5rem;
+    background-color:var(--item-color-background);
+}
+.summary-item .flex-group svg{
+    stroke:var(--item-color);
+}
+.summary-item[data-item-type="accent-1"]{
+    --item-color:hsl(var(--clr-red));
+    --item-color-background:hsl(var(--clr-red),10%);
+}
+.summary-item[data-item-type="accent-2"]{
+    --item-color:hsl(var(--clr-yellow));
+    --item-color-background:hsl(var(--clr-yellow),10%);
+}
+.summary-item[data-item-type="accent-3"]{
+    --item-color:hsl(var(--clr-green));
+    --item-color-background:hsl(var(--clr-green),10%);
+}
+.summary-item[data-item-type="accent-4"]{
+    --item-color:hsl(var(--clr-blue));
+    --item-color-background:hsl(var(--clr-blue),10%);
+}
+.summary-score{
+   font-weight: var(--fw-black);
+   color:hsl(224, 30%, 27% , .5); 
+}
+.summary-score span{
+ color:var(--clr-neutral-700); 
+}
+.button{
+    color:var(--clr-neutral-100);
+    line-height: 1;
+    background-color: var(--clr-neutral-700);
+    padding: 1rem 2rem;
+    border:0;
+    border-radius: 100vw;
+    cursor: pointer;
+}
+.button:hover,
+.button:focus-visible{
+    background:var(--gradient-primary);
+}
+
